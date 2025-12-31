@@ -4,14 +4,18 @@ import { Navigation } from '@/components/billing/Navigation';
 import { HomeView } from '@/components/billing/HomeView';
 import { PatientView } from '@/components/billing/PatientView';
 import { PricingView } from '@/components/billing/PricingView';
+import { Settings } from '@/pages/Settings';
 import { useBillingStore } from '@/hooks/useBillingStore';
 import { useTheme } from '@/hooks/useTheme';
+import { useSettingsStore } from '@/hooks/useSettingsStore';
 import { ViewType } from '@/types/billing';
 import { Loader2 } from 'lucide-react';
 
 const Index = () => {
   const { theme, toggleTheme } = useTheme();
   const [currentView, setCurrentView] = useState<ViewType>('home');
+  const [showSettings, setShowSettings] = useState(false);
+  const { settings } = useSettingsStore();
 
   const {
     inventory,
@@ -41,9 +45,18 @@ const Index = () => {
     );
   }
 
+  if (showSettings) {
+    return <Settings onBack={() => setShowSettings(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-background">
-      <Header theme={theme} onThemeToggle={toggleTheme} />
+      <Header 
+        theme={theme} 
+        onThemeToggle={toggleTheme} 
+        onSettingsClick={() => setShowSettings(true)}
+        settings={settings}
+      />
       <Navigation currentView={currentView} onViewChange={setCurrentView} />
       
       <main className="max-w-7xl mx-auto px-6 pb-12">
