@@ -108,8 +108,8 @@ export function PatientView({
 
   return (
     <div className="animate-fade-in">
-      <div className="mb-6">
-        <h2 className="text-2xl font-extrabold uppercase tracking-tight">
+      <div className="mb-4 md:mb-6">
+        <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
           {type === 'outpatient' ? 'OUTPATIENT' : 'INPATIENT'}{' '}
           <span className="font-light text-muted-foreground">
             {type === 'outpatient' ? 'TERMINAL' : 'CARE'}
@@ -117,7 +117,7 @@ export function PatientView({
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] gap-4 md:gap-8">
         <div>
           {catMode === 'grid' ? (
             <CategoryGrid
