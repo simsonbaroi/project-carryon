@@ -59,7 +59,7 @@ const Index = () => {
       />
       <Navigation currentView={currentView} onViewChange={setCurrentView} />
       
-      <main className="max-w-7xl mx-auto px-6 pb-12">
+      <main className="max-w-7xl mx-auto px-4 md:px-6 pb-8 md:pb-12">
         {currentView === 'home' && (
           <HomeView onNavigate={setCurrentView} />
         )}

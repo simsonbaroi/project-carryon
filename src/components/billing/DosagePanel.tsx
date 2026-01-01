@@ -67,39 +67,39 @@ export function DosagePanel({ item, onClose, onAdd }: DosagePanelProps) {
 
   return (
     <div className="dosage-panel animate-fade-in">
-      <div className="flex justify-between items-center mb-6 pb-4 border-b border-border">
-        <h4 className="font-extrabold text-lg text-foreground flex items-center gap-2">
-          <FlaskConical className="w-5 h-5 text-primary" />
-          COMMIT: <span className="text-primary">{item.name}</span>
+      <div className="flex justify-between items-start gap-2 mb-4 md:mb-6 pb-3 md:pb-4 border-b border-border">
+        <h4 className="font-extrabold text-sm md:text-lg text-foreground flex items-center gap-2 min-w-0">
+          <FlaskConical className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+          <span className="truncate">COMMIT: <span className="text-primary">{item.name}</span></span>
         </h4>
         <X 
-          className="w-6 h-6 text-muted-foreground cursor-pointer hover:text-foreground transition-colors" 
+          className="w-5 h-5 md:w-6 md:h-6 text-muted-foreground cursor-pointer hover:text-foreground transition-colors flex-shrink-0" 
           onClick={onClose}
         />
       </div>
 
       {isMedicine ? (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
           <div>
-            <label className="block text-[10px] font-extrabold text-muted-foreground mb-2 uppercase tracking-widest">
+            <label className="block text-[9px] md:text-[10px] font-extrabold text-muted-foreground mb-1.5 md:mb-2 uppercase tracking-widest">
               Dose Qty
             </label>
             <input
               type="text"
               value={doseQty}
               onChange={(e) => setDoseQty(e.target.value)}
-              className="input-field"
+              className="input-field text-sm"
               placeholder="1.0"
             />
           </div>
           <div>
-            <label className="block text-[10px] font-extrabold text-muted-foreground mb-2 uppercase tracking-widest">
+            <label className="block text-[9px] md:text-[10px] font-extrabold text-muted-foreground mb-1.5 md:mb-2 uppercase tracking-widest">
               Route
             </label>
             <select
               value={doseType}
               onChange={(e) => setDoseType(e.target.value)}
-              className="input-field"
+              className="input-field text-sm"
             >
               {DOSE_ROUTES.map(route => (
                 <option key={route} value={route}>{route}</option>
@@ -107,13 +107,13 @@ export function DosagePanel({ item, onClose, onAdd }: DosagePanelProps) {
             </select>
           </div>
           <div>
-            <label className="block text-[10px] font-extrabold text-muted-foreground mb-2 uppercase tracking-widest">
+            <label className="block text-[9px] md:text-[10px] font-extrabold text-muted-foreground mb-1.5 md:mb-2 uppercase tracking-widest">
               Frequency
             </label>
             <select
               value={doseFreq}
               onChange={(e) => setDoseFreq(e.target.value)}
-              className="input-field"
+              className="input-field text-sm"
             >
               {DOSE_FREQUENCIES.map(freq => (
                 <option key={freq.value} value={freq.value}>{freq.label}</option>
@@ -121,41 +121,41 @@ export function DosagePanel({ item, onClose, onAdd }: DosagePanelProps) {
             </select>
           </div>
           <div>
-            <label className="block text-[10px] font-extrabold text-muted-foreground mb-2 uppercase tracking-widest">
+            <label className="block text-[9px] md:text-[10px] font-extrabold text-muted-foreground mb-1.5 md:mb-2 uppercase tracking-widest">
               Days
             </label>
             <input
               type="number"
               value={doseDays}
               onChange={(e) => setDoseDays(e.target.value)}
-              className="input-field"
+              className="input-field text-sm"
               min="1"
             />
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
           <div>
-            <label className="block text-[10px] font-extrabold text-muted-foreground mb-2 uppercase tracking-widest">
+            <label className="block text-[9px] md:text-[10px] font-extrabold text-muted-foreground mb-1.5 md:mb-2 uppercase tracking-widest">
               Units Required
             </label>
             <input
               type="number"
               value={serviceQty}
               onChange={(e) => setServiceQty(e.target.value)}
-              className="input-field"
+              className="input-field text-sm"
               min="1"
             />
           </div>
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-border gap-4">
-        <div className="font-mono font-bold text-4xl text-primary">
+      <div className="flex flex-col sm:flex-row items-center justify-between pt-4 md:pt-6 border-t border-border gap-3 md:gap-4">
+        <div className="font-mono font-bold text-2xl md:text-4xl text-primary">
           ৳ {total.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
         </div>
-        <button onClick={handleAdd} className="btn-primary w-full sm:w-auto">
-          <PlusCircle className="w-5 h-5" />
+        <button onClick={handleAdd} className="btn-primary w-full sm:w-auto text-sm md:text-base">
+          <PlusCircle className="w-4 h-4 md:w-5 md:h-5" />
           ADD TO STATEMENT
         </button>
       </div>
