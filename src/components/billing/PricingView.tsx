@@ -171,16 +171,16 @@ export function PricingView({
 
   return (
     <div className="animate-fade-in">
-      <div className="flex flex-wrap items-center justify-between gap-6 mb-8">
-        <div className="flex items-center gap-4">
-          <Tags className="w-10 h-10 text-accent" />
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div className="flex items-center gap-3">
+          <Tags className="w-8 h-8 md:w-10 md:h-10 text-accent flex-shrink-0" />
           <div>
-            <h2 className="text-3xl font-extrabold tracking-tight">Pricing</h2>
-            <span className="text-xl font-normal text-muted-foreground">Database</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">Pricing</h2>
+            <span className="text-lg md:text-xl font-normal text-muted-foreground">Database</span>
           </div>
         </div>
 
-        <div className="flex gap-3 flex-wrap">
+        <div className="grid grid-cols-3 gap-2 w-full sm:w-auto sm:flex sm:gap-3">
           <input
             ref={fileInputRef}
             type="file"
@@ -188,17 +188,17 @@ export function PricingView({
             className="hidden"
             onChange={handleFileChange}
           />
-          <button onClick={handleImportClick} className="btn-primary text-xs py-3 px-4">
+          <button onClick={handleImportClick} className="btn-primary text-xs py-2.5 px-3 sm:py-3 sm:px-4 justify-center">
             <Upload className="w-4 h-4" />
-            IMPORT
+            <span className="hidden xs:inline">IMPORT</span>
           </button>
-          <button onClick={onExport} className="btn-primary text-xs py-3 px-4">
+          <button onClick={onExport} className="btn-primary text-xs py-2.5 px-3 sm:py-3 sm:px-4 justify-center">
             <Download className="w-4 h-4" />
-            EXPORT
+            <span className="hidden xs:inline">EXPORT</span>
           </button>
-          <button onClick={openAddModal} className="btn-primary text-xs py-3 px-4">
+          <button onClick={openAddModal} className="btn-primary text-xs py-2.5 px-3 sm:py-3 sm:px-4 justify-center">
             <Plus className="w-4 h-4" />
-            ADD
+            <span className="hidden xs:inline">ADD</span>
           </button>
         </div>
       </div>
